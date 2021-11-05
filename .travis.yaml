@@ -1,0 +1,8 @@
+sudo: required
+services:
+  - docker
+before_install:
+  - docker build -t bryankle/docker-react -f Dockerfile.dev .
+script:
+  - docker run -e CI=true bryankle/docker-react npm run test
+language: generic
